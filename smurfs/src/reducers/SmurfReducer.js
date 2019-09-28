@@ -1,14 +1,11 @@
 import {
     ADD_SMURF_SUCCESS,
-    ADD_SMURF_FAIL
+    ADD_SMURF_FAIL,
+    GET_SMURF_SUCCESS,
+    GET_SMURF_FAIL
 } from '../actions/index';
 
 export const initialState = {
-    name: "",
-    age: "",
-    height: "",
-    id: null,
-    smurf: {},
     villagers: []
 }
 
@@ -19,7 +16,14 @@ export const smurfReducer = (state = initialState, action) => {
             console.log("Successfully added Smurf", state);
             return {
                 ...state,
-                smurf: action.payload
+                villagers: action.payload
+            }
+        }
+
+        case GET_SMURF_SUCCESS: {
+            return {
+                ...state,
+                villagers: action.payload
             }
         }
         

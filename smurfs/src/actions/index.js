@@ -9,7 +9,7 @@ export const ADD_SMURF_FAIL = "ADD_SMURF_FAIL";
 export const getSmurfs = () => (dispatch) => {
     return axios.get('http://localhost:3333/smurfs')
             .then((res) =>
-                dispatch({type: GET_SMURF_SUCCESS, payload: res.data.data}))
+                dispatch({type: GET_SMURF_SUCCESS, payload: res.data}))
             .catch((err) => dispatch({type: GET_SMURF_FAIL, payload: err}));
 }
 
@@ -19,7 +19,7 @@ export const addSmurf = (smurf) => (dispatch) => {
         height: smurf.height,
         age: smurf.age
     })
-        .then((res) => dispatch({type: ADD_SMURF_SUCCESS, payload: res}))
+        .then((res) => dispatch({type: ADD_SMURF_SUCCESS, payload: res.data}))
         .catch((err) => dispatch({type: ADD_SMURF_FAIL, payload: err}));
         {
     }
